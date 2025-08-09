@@ -120,7 +120,7 @@ const About = () => {
             {[
               { name: "Pawan Pahune", role: "Head of AI Innovation & Team Leader", bg: "from-orange-500/30 to-yellow-500/30" },
               { name: "Varun Nikam", role: "Head Product Strategist", bg: "from-red-500/30 to-yellow-500/30" },
-              { name: "Himanshi Sonkusale", role: "Lead Frontend Architect", bg: "from-yellow-500/30 to-orange-500/30" }
+              { name: "Himanshi Sonkusale", role: "Head Frontend Architect", bg: "from-yellow-500/30 to-orange-500/30" }
             ].map((member, index) => (
               <motion.div 
                 key={index} 
