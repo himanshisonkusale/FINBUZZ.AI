@@ -103,9 +103,8 @@ const Hero = () => {
                 <span className="text-white">WELCOME</span>
                 <span className="text-[#00FF88] drop-shadow-[0_0_6px_#00FF88]"> FINBUZZ.AI</span>
               </h1>
-              <p className="text-xl text-white leading-relaxed animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                An AI-powered conversational agent serves as a sophisticated financial partner, expertly managing a wide range of customer inquiries. It provides personalized financial advisory services and proficiently executes complex financial operations. The agent offers comprehensive, predictive market analysis by continuously monitoring global news and market sentiment. It ensures a seamless and efficient transition to specialized human financial experts for intricate issues, guaranteeing an exceptional and superior customer experience.
-              </p>
+              <p className="text-xl text-white leading-relaxed animate-fadeInUp text-justify" style={{ animationDelay: '0.2s' }}>
+An AI-powered conversational agent serves as a sophisticated financial partner, expertly managing diverse customer inquiries. It provides personalized financial advisory services, executes complex operations, and offers predictive market analysis by monitoring global news and sentiment. For intricate issues, the agent ensures a seamless handoff to human experts, guaranteeing a superior customer experience.              </p>
             </div>
             <div className="flex justify-center sm:justify-start animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
               <button className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl">
