@@ -33,17 +33,17 @@ const Footer = () => {
             <ul className="space-y-2 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
               <li>
                 <Link to="/features" className="text-text-muted hover:text-text-primary hover:text-electric-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                  Powerful Features
+                  Features
                 </Link>
               </li>
               <li>
                 <Link to="/how-to-use" className="text-text-muted hover:text-text-primary hover:text-electric-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                  How to Use
+                  FINBUZZ.AI Workflow
                 </Link>
               </li>
               <li>
                 <Link to="/documentation" className="text-text-muted hover:text-text-primary hover:text-electric-blue-400 transition-all duration-300 transform hover:translate-x-2">
-                  Documentations
+                  Documentation
                 </Link>
               </li>
               <li>

@@ -88,7 +88,7 @@ const Hero = () => {
       {/* Smooth transition to black at the top */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-20"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Text Content */}
           <motion.div 
@@ -108,10 +108,10 @@ const Hero = () => {
               </p>
             </div>
             <div className="flex justify-center sm:justify-start animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-             <button className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden">
-    <span className="relative z-10 group-hover:animate-pulse font-bold">LAUNCH FINBUZZ.AI</span>
-    <div className="absolute inset-0 bg-[#dd6c1c]/20 animate-pulse"></div>
-</button>
+              <button className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl">
+                <span className="relative z-10 group-hover:animate-pulse font-bold">LAUNCH FINBUZZ.AI</span>
+                <div className="absolute inset-0 bg-[#dd6c1c]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
             </div>
           </motion.div>
           {/* Right Side - New SVG-based animation area */}

@@ -1,6 +1,8 @@
+"use client"
+
 import React from 'react';
-import { UserPlus, Brain, TrendingUp, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { UserPlus, Brain, TrendingUp, Target, Cloud, Database, BarChart2, Lightbulb } from 'lucide-react';
+import { motion, useAnimation } from 'framer-motion';
 
 // Define custom CSS variables and keyframes for the theme
 const customStyles = `
@@ -54,12 +56,12 @@ const customStyles = `
   
   @keyframes fadeInRight {
     from {
-    opacity: 0;
-    transform: translateX(30px);
+      opacity: 0;
+      transform: translateX(30px);
     }
     to {
-    opacity: 1;
-    transform: translateX(0);
+      opacity: 1;
+      transform: translateX(0);
     }
   }
   
@@ -80,6 +82,7 @@ const customStyles = `
 `;
 
 const HowItWorks = () => {
+  // We'll use the existing steps array for both the left-side text and the right-side visualization.
   const steps = [
     {
       number: "01",
@@ -105,6 +108,13 @@ const HowItWorks = () => {
       title: "Gain Actionable Insights",
       description: "Utilize a suite of tools to address various needs, from handling routine customer queries to conducting in-depth financial analysis and receiving personalized advice."
     }
+  ];
+
+  const rotatingItems = [
+    { icon: UserPlus, title: "Get Started", color: "text-orange-300" },
+    { icon: Cloud, title: "Upload Data", color: "text-orange-300" },
+    { icon: BarChart2, title: "Analyze", color: "text-orange-300" },
+    { icon: Lightbulb, title: "Insights", color: "text-orange-300" },
   ];
 
   return (
@@ -175,72 +185,114 @@ const HowItWorks = () => {
               </div>
             </motion.div>
             
-            {/* Right Side - Interactive Visualization (smaller) */}
+            {/* Right Side - Interactive Visualization (updated) */}
             <motion.div
-              className="relative h-64 lg:h-96 lg:ml-12 animate-fadeInRight"
+              className="relative h-96 flex items-center justify-center lg:ml-12 animate-fadeInRight"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-space-blue-900/40 via-space-blue-950/60 to-deep-black/80 backdrop-blur-md rounded-3xl border border-orange-500/30 transform hover:scale-105 transition-transform duration-700 hover:border-orange-400/50 shadow-glow-lg hover:shadow-glow-xl">
-                
-                {/* Central AI Interface */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative w-24 h-24 sm:w-32 sm:h-32 bg-charcoal-900/80 rounded-full flex items-center justify-center border border-orange-400/60 backdrop-blur-sm transform hover:scale-125 transition-transform duration-500 shadow-orange">
-                    <Brain className="w-12 h-12 sm:w-16 sm:h-16 text-orange-400 animate-pulse-glow hover:animate-spin transition-all duration-300" />
-                    
-                    {/* Orbiting Data Points */}
-                    <div className="absolute inset-0 animate-spin hover:animate-pulse" style={{ animationDuration: '20s' }}>
-                      <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-orange-400 rounded-full animate-ping shadow-orange" />
-                    </div>
-                    
-                    <div className="absolute inset-0 animate-spin hover:animate-bounce" style={{ animationDuration: '15s', animationDirection: 'reverse' }}>
-                      <div className="absolute top-1/2 -right-6 sm:-right-8 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-red-400 rounded-full animate-ping shadow-red" />
-                    </div>
-                    
-                    <div className="absolute inset-0 animate-spin hover:animate-pulse" style={{ animationDuration: '25s' }}>
-                      <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-orange-400 rounded-full animate-ping shadow-orange" />
-                    </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-space-blue-900/40 via-space-blue-950/60 to-deep-black/80 backdrop-blur-md rounded-3xl border border-orange-500/30 transform hover:scale-105 transition-transform duration-700 hover:border-orange-400/50 shadow-glow-lg hover:shadow-glow-xl" />
+              
+              {/* Central AI Core */}
+              <motion.div
+                className="relative z-10 w-32 h-32 bg-charcoal-900/80 rounded-full flex items-center justify-center border border-orange-400/60 backdrop-blur-sm shadow-orange"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
+              >
+                <Brain className="w-16 h-16 text-orange-400 animate-pulse-glow" />
+                <div className="absolute w-24 h-24 border border-dashed border-orange-600/30 rounded-full animate-spin-slow" />
+              </motion.div>
+              
+              {/* Top 3 boxes - aligned horizontally */}
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ top: '10%', left: '10%', transform: 'translate(-50%, -50%)' }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <UserPlus className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Get Started
                   </div>
                 </div>
-
-                {/* Floating Data Visualizations */}
-                <div className="absolute top-8 right-8 space-y-1 sm:space-y-2 animate-fadeInUp" style={{ animationDelay: '1.5s' }}>
-                  {['Real-time Analysis', 'Market Insights', 'Risk Assessment'].map((label, i) => (
-                    <div
-                      key={i}
-                      className="bg-charcoal-800/90 px-2 sm:px-4 py-1 sm:py-2 rounded-lg border border-charcoal-600/40 animate-bounce text-[10px] sm:text-sm text-text-secondary transform hover:scale-110 transition-transform duration-300 hover:border-orange-400/60 shadow-glow-sm hover:shadow-orange"
-                      style={{ animationDelay: `${i * 0.3}s` }}
-                    >
-                      {label}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Dynamic Charts */}
-                <div className="absolute bottom-8 left-8 w-24 h-16 sm:w-36 sm:h-20 bg-charcoal-900/80 rounded-lg border border-orange-400/40 p-2 sm:p-3 backdrop-blur-sm transform hover:scale-110 transition-transform duration-300 hover:border-orange-400/60 shadow-orange">
-                  <div className="text-[10px] sm:text-xs text-text-muted mb-1 sm:mb-2">Portfolio Performance</div>
-                  <div className="h-6 sm:h-8 flex items-end space-x-0.5 sm:space-x-1">
-                    {[...Array(10)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="bg-gradient-to-t from-orange-500 to-red-500 rounded-sm animate-pulse-glow hover:animate-bounce transition-all duration-200 shadow-orange"
-                        style={{
-                          width: '6px',
-                          height: `${Math.random() * 100 + 20}%`,
-                          animationDelay: `${i * 0.2}s`
-                        }}
-                      />
-                    ))}
+              </motion.div>
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ top: '10%', left: '40%', transform: 'translate(-50%, -50%)' }}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <Lightbulb className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Launch Agent
                   </div>
                 </div>
-
-                {/* User Avatar */}
-                <div className="absolute bottom-1/4 right-1/4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-400/30 to-red-500/30 rounded-full border border-orange-400/40 flex items-center justify-center transform hover:scale-125 transition-transform duration-500 shadow-orange">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-text-secondary rounded-full animate-pulse-glow hover:animate-spin transition-all duration-300" />
+              </motion.div>
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ top: '10%', left: '70%', transform: 'translate(-50%, -50%)' }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.6, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <Database className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Integrate Data
+                  </div>
                 </div>
-              </div>
+              </motion.div>
+              
+              {/* Bottom 3 boxes - aligned horizontally */}
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ bottom: '10%', left: '10%', transform: 'translate(-50%, 50%)' }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2.0, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <TrendingUp className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Gain Insights
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ bottom: '10%', left: '40%', transform: 'translate(-50%, 50%)' }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.4, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <Target className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Invest smartly
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="absolute w-32 h-16"
+                style={{ bottom: '10%', left: '70%', transform: 'translate(-50%, 50%)' }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2.8, duration: 0.6 }}
+              >
+                <div className="bg-gray-800/70 p-2 rounded-lg shadow-lg border border-gray-600/50 hover:scale-110 transition-transform duration-300">
+                  <div className="text-xs text-center text-orange-300">
+                    <Cloud className="w-6 h-6 mx-auto mb-1 text-orange-300" />
+                    Connect Data
+                  </div>
+                </div>
+              </motion.div>
+              
             </motion.div>
           </div>
         </div>
