@@ -247,7 +247,7 @@ const AgentUsagePage = ({ onGoBack }) => {
 
       {/* Footer bar */}
       <footer className="bg-black/50 text-white text-center py-4 mt-12 rounded-lg">
-        <p className="text-sm">© 2024 Finbuzz.AI. All rights reserved.</p>
+        <p className="text-sm">© 2025 Finbuzz.AI. All rights reserved.</p>
       </footer>
 
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Linkedin, Github, Mail, Phone, MapPin, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
-  return (
+  return (
     <motion.footer
       className="bg-deep-black border-t border-electric-blue-900/40 relative overflow-hidden shadow-glow-sm"
       initial={{ opacity: 0, y: 50 }}
@@ -27,14 +27,16 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex space-x-4 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               {[
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Mail, href: "#", label: "Email" }
+                { icon: Instagram, href: "https://www.instagram.com/finbuzz.ai", label: "Instagram" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/finbuzz-ai", label: "LinkedIn" },
+                { icon: Github, href: "https://github.com/himanshisonkusale/FINBUZZ.AI", label: "GitHub" },
+                { icon: Mail, href: "https://mail.google.com/mail/?view=cm&fs=1&to=customercarefinbuzz@gmail.com&su=Inquiry%20from%20FINBUZZ.AI%20Website", label: "Email" }
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-charcoal-900 border border-electric-blue-500/40 rounded-full flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-electric-blue-600 transition-all duration-500 transform hover:scale-125 hover:rotate-12 shadow-glow-sm hover:shadow-electric-blue"
                   aria-label={label}
                 >
@@ -62,10 +64,15 @@ const Footer = () => {
           <div className="transform hover:scale-105 transition-transform duration-500 animate-fadeInUp" style={{ animationDelay: '0.8s' }}>
             <h4 className="text-lg font-semibold text-text-primary mb-4 hover:text-electric-blue-300 transition-colors duration-300">Contact</h4>
             <div className="space-y-3 animate-fadeInUp" style={{ animationDelay: '1s' }}>
-              <div className="flex items-center space-x-3 text-text-muted hover:text-text-secondary hover:text-electric-blue-400 transition-colors duration-300 transform hover:translate-x-2">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=customercarefinbuzz@gmail.com&su=Inquiry%20from%20FINBUZZ.AI%20Website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-text-muted hover:text-text-secondary hover:text-electric-blue-400 transition-colors duration-300 transform hover:translate-x-2"
+              >
                 <Mail className="w-4 h-4" />
-                <span>supportfinbuzz.ai@gmail.com</span>
-              </div>
+                <span>customercarefinbuzz@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
