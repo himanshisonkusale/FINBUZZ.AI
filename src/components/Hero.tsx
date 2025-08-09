@@ -73,6 +73,11 @@ const Hero = () => {
     }
   }, []);
 
+  // Handler to open the specified URL
+  const handleLaunchClick = () => {
+    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ', '_blank');
+  };
+
   return (
     <section id="home" className="pt-16 min-h-screen flex items-center relative overflow-hidden bg-deep-black">
       {/* 3D Animated Background */}
@@ -107,7 +112,10 @@ const Hero = () => {
 An AI-powered conversational agent serves as a sophisticated financial partner, expertly managing diverse customer inquiries. It provides personalized financial advisory services, executes complex operations, and offers predictive market analysis by monitoring global news and sentiment. For intricate issues, the agent ensures a seamless handoff to human experts, guaranteeing a superior customer experience.              </p>
             </div>
             <div className="flex justify-center sm:justify-start animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
-              <button className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl">
+              <button
+                className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl"
+                onClick={handleLaunchClick} // Added the onClick handler here
+              >
                 <span className="relative z-10 group-hover:animate-pulse font-bold">LAUNCH FINBUZZ.AI</span>
                 <div className="absolute inset-0 bg-[#dd6c1c]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>

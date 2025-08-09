@@ -17,6 +17,11 @@ const AgentUsagePage = ({ onGoBack }) => {
   
   // New style for the image containers to enforce equal sizing
   const imageContainerStyle = "flex items-center justify-center overflow-hidden";
+  
+  // Handler to open the specified URL
+  const handleLaunchClick = () => {
+    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ', '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-black text-white relative p-4 sm:p-8 font-sans backdrop-filter backdrop-blur-3xl"
@@ -244,6 +249,17 @@ const AgentUsagePage = ({ onGoBack }) => {
           </p>
         </div>
       </motion.div>
+
+      {/* New button to launch FINBUZZ.AI */}
+      <div className="flex justify-center mt-12 mb-12">
+        <button
+          className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl"
+          onClick={handleLaunchClick}
+        >
+          <span className="relative z-10 group-hover:animate-pulse font-bold">LAUNCH FINBUZZ.AI</span>
+          <div className="absolute inset-0 bg-[#dd6c1c]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </button>
+      </div>
 
       {/* Footer bar */}
       <footer className="bg-black/50 text-white text-center py-4 mt-12 rounded-lg">
