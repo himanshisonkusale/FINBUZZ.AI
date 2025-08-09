@@ -42,8 +42,8 @@ const About = () => {
   // Updated array to include image paths for each team member
   const teamMembers = [
     { name: "Pawan Pahune", role: "Head of AI Innovation & Team Leader", image: "/assets/pawan.png" },
-    { name: "Varun Nikam", role: "Head Product Strategist", image: "/assets/varun.png" },
-    { name: "Himanshi Sonkusale", role: "Head Frontend Architect", image: "/assets/himanshi.png" }
+    { name: "Varun Nikam", role: "Head of Product Strategist", image: "/assets/varun.png" },
+    { name: "Himanshi Sonkusale", role: "Head of Frontend Architect", image: "/assets/himanshi.png" }
   ];
 
   return (
