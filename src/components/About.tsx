@@ -118,7 +118,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Pawan Pahune", role: "Head of AI Innovation", bg: "from-orange-500/30 to-yellow-500/30" },
+              { name: "Pawan Pahune", role: "Head of AI Innovation & Team Leader", bg: "from-orange-500/30 to-yellow-500/30" },
               { name: "Varun Nikam", role: "Lead Product Strategist", bg: "from-red-500/30 to-yellow-500/30" },
               { name: "Himanshi Sonkusale", role: "Lead Frontend Architect", bg: "from-yellow-500/30 to-orange-500/30" }
             ].map((member, index) => (
