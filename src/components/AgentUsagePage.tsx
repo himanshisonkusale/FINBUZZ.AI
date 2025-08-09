@@ -40,7 +40,7 @@ const AgentUsagePage = ({ onGoBack }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <span className="text-[#00FF88]">Agent</span> <span className="text-white">Usage Guide</span>
+        <span className="text-[#00FF88]">FINBUZZ.AI Agent</span> <span className="text-white">Usage Guide</span>
       </motion.h1>
 
       {/* Tab 1 Section with new box styling and icon */}
@@ -82,7 +82,7 @@ const AgentUsagePage = ({ onGoBack }) => {
         
         <div className={stepBoxStyle}>
           <p className="text-lg">
-            <span className="font-semibold text-xl">Step 3:</span> Initiate a conversation with the agent by greeting it and asking how it can assist you or what tools it has. The agent will then present a list of its capabilities. From there, you can instruct it to perform a specific task using one of the available tools. For example: As shown in the image below
+            <span className="font-semibold text-xl">Step 3:</span> To initiate a conversation with the agent, you can either type a greeting or, when using the voice option, you must first click the record button to capture your voice and then the process voice button to convert it to a message for the agent. The agent will then present a list of its capabilities, allowing you to instruct it to perform a specific task using one of the available tools. For example: As shown in the image below
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -247,7 +247,7 @@ const AgentUsagePage = ({ onGoBack }) => {
 
       {/* Footer bar */}
       <footer className="bg-black/50 text-white text-center py-4 mt-12 rounded-lg">
-        <p className="text-sm">© 2025 Finbuzz.AI. All rights reserved.</p>
+        <p className="text-sm">© 2025 FinBuzz.AI. All rights reserved. | Empowering your financial journey.</p>
       </footer>
 
     </div>
