@@ -64,7 +64,7 @@ const Footer = () => {
               {[
                 { icon: Instagram, href: "https://www.instagram.com/finbuzz.ai", label: "Instagram" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/finbuzz-ai", label: "LinkedIn" },
-                { icon: Github, href: "https://github.com/github/FINBUZZ.AI", label: "GitHub" },
+                { icon: Github, href: "https://github.com/himanshisonkusale/FINBUZZ.AI-Project", label: "GitHub" },
                 { 
                   icon: Mail, 
                   href: "https://mail.google.com/mail/?view=cm&fs=1&to=customercarefinbuzz@gmail.com&su=Inquiry%20from%20FINBUZZ.AI%20Website", 
