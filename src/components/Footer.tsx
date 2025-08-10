@@ -63,6 +63,7 @@ const Footer = () => {
             <div className="flex space-x-4 animate-fadeInUp mt-4" style={{ animationDelay: '1.2s' }}>
               {[
                 { icon: Instagram, href: "https://www.instagram.com/finbuzz.ai", label: "Instagram" },
+                { icon: Linkedin, href: "https://www.linkedin.com/finbuzz.ai", label: "Linkedin" },
                 
                 { icon: Github, href: "https://github.com/himanshisonkusale/FINBUZZ.AI-Project", label: "GitHub" },
                 { 
