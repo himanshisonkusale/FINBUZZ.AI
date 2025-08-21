@@ -142,7 +142,7 @@ const Features = () => {
   <span className="text-[#00FF88] drop-shadow-[0_0_7px_#00FF88]">FINBUZZ.AI</span>
 </h2>
 <p className="text-xl text-transparent bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text max-w-3xl mx-auto">
-          Revolutionizing financial services with cutting-edge AI technology and comprehensive analytical tools.
+          Revolutionizing financial services with cutting-edge AI technology and comprehensive analytical tools
           </p>
         </motion.div>
 
