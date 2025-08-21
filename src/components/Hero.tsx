@@ -1,11 +1,34 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { TrendingUp, BarChart3, DollarSign, Brain, PieChart } from 'lucide-react';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 
+// Main Hero component for the landing page
 const Hero = () => {
+  // Ref for the THREE.js container element
   const mountRef = useRef(null);
 
+  // State for the animated stock price
+  const [stockPrice, setStockPrice] = useState(150.75);
+  const [isPositive, setIsPositive] = useState(true);
+
+  // Animate the stock price
+  useEffect(() => {
+    const priceInterval = setInterval(() => {
+      // Generate a new price based on the current price
+      const change = (Math.random() - 0.5) * 5; // Change between -2.5 and +2.5
+      let newPrice = stockPrice + change;
+      newPrice = Math.max(100, Math.min(200, newPrice)); // Keep price within a reasonable range
+
+      // Update state
+      setStockPrice(parseFloat(newPrice.toFixed(2)));
+      setIsPositive(change >= 0);
+    }, 1500);
+
+    return () => clearInterval(priceInterval);
+  }, [stockPrice]);
+
+  // useEffect hook for the THREE.js setup
   useEffect(() => {
     // --- THREE.js Setup ---
     let scene, camera, renderer, grid;
@@ -43,8 +66,8 @@ const Hero = () => {
         // Animate the grid for a dynamic effect
         if (grid) {
           // Increased the rotation speed as requested
-          grid.rotation.z += 0.003;
-          grid.rotation.x += 0.0012;
+          grid.rotation.z += 0.006; // Slightly increased speed from 0.005
+          grid.rotation.x += 0.002; // Slightly increased speed from 0.0018
         }
 
         renderer.render(scene, camera);
@@ -118,14 +141,14 @@ const Hero = () => {
             </div>
             <div className="flex flex-col sm:flex-row justify-center sm:justify-start items-center gap-4 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
               <button
-                className="bg-gradient-to-r from-[#e45619] to-[#ee7722] text-white px-8 py-3 rounded-xl text-lg font-bold transition-all duration-500 transform hover:scale-105 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
+                className="bg-gradient-to-r from-[#d8480a] to-[#f37c28] text-white px-8 py-3 rounded-xl text-lg font-bold transition-all duration-500 transform hover:scale-105 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
                 onClick={handleLaunchClick}
               >
                 <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Chat Agent</span>
                 <div className="absolute inset-0 bg-[#ff4500]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
-                className="bg-gradient-to-r from-[#3fb33f] to-[#0b9d4a] text-white px-8 py-3 rounded-xl text-lg font-bold transition-all duration-500 transform hover:scale-105 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
+                className="bg-gradient-to-r from-[#44c744] to-[#026f31] text-white px-8 py-3 rounded-xl text-lg font-bold transition-all duration-500 transform hover:scale-105 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
                 onClick={handleTradingAgentClick}
               >
                 <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Trading Agent</span>
@@ -153,13 +176,34 @@ const Hero = () => {
                 {/* Animated 3D Stock Chart */}
                 <div className="relative h-[200px] overflow-hidden rounded-lg bg-black/30">
                   <svg width="100%" height="100%" viewBox="0 0 350 200" className="absolute inset-0">
-                    {/* Grid lines */}
+                    {/* Define a gradient for the area fill */}
                     <defs>
                       <pattern id="grid" width="35" height="20" patternUnits="userSpaceOnUse">
                         <path d="M 35 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
                       </pattern>
+                      <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style={{ stopColor: '#00FF88', stopOpacity: 0.3 }} />
+                        <stop offset="100%" style={{ stopColor: '#007744', stopOpacity: 0 }} />
+                      </linearGradient>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#grid)" />
+
+                    {/* Animated Area Fill under the profit line */}
+                    <path
+                      d="M 20 160 Q 70 140, 120 100 T 220 80 T 320 60 L 320 200 L 20 200 Z"
+                      fill="url(#areaGradient)"
+                      className="animate-pulse"
+                      style={{ filter: 'drop-shadow(0px 0px 8px rgba(0,255,136,0.5))' }}
+                    >
+                      <animate
+                        attributeName="d"
+                        values="M 20 160 Q 70 140, 120 100 T 220 80 T 320 60 L 320 200 L 20 200 Z;
+                                M 20 160 Q 70 120, 120 90 T 220 70 T 320 50 L 320 200 L 20 200 Z;
+                                M 20 160 Q 70 140, 120 100 T 220 80 T 320 60 L 320 200 L 20 200 Z"
+                        dur="3s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
 
                     {/* Animated Profit Line (Green) */}
                     <path
@@ -180,7 +224,7 @@ const Hero = () => {
                       />
                     </path>
 
-                    {/* Animated Loss Line (Red) */}
+                    {/* Animated Loss Line (Red) - now more jagged like a realistic loss line */}
                     <path
                       d="M 20 120 Q 80 180, 140 160 T 240 140 T 320 120"
                       stroke="#ff4d4d"
@@ -210,6 +254,13 @@ const Hero = () => {
                       </animateMotion>
                     </circle>
                   </svg>
+                  {/* Stock Price and change indicator */}
+                  <div className="absolute top-4 left-4 flex items-baseline space-x-2">
+                    <span className="text-4xl font-bold text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">${stockPrice}</span>
+                    <span className={`text-xl font-semibold transition-colors duration-500 ${isPositive ? 'text-green-500' : 'text-red-500'}`}>
+                      {isPositive ? '+' : ''}{(stockPrice - 150.75).toFixed(2)}
+                    </span>
+                  </div>
 
                   {/* Live data indicators */}
                   <div className="absolute bottom-2 left-2 text-xs">
@@ -267,8 +318,7 @@ const Hero = () => {
                 style={{ animationDelay: "800ms", animationDuration: "3s" }}
               >
                 <span className="text-xs text-text-secondary">
-                  Live Performance
-                </span>
+                  Live Performance</span>
                 <span className="text-lg font-semibold text-neon-green-500">
                   +15.7%
                 </span>

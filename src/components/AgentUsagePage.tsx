@@ -25,13 +25,13 @@ const AgentUsagePage = ({ onGoBack }) => {
 
   return (
     <div className="min-h-screen bg-black text-white relative p-4 sm:p-8 font-sans backdrop-filter backdrop-blur-3xl"
-        style={{ 
-          backgroundImage: 'radial-gradient(ellipse at 50% -20%, rgba(0, 0, 139, 0.3), transparent 80%)',
-        }}>
+      style={{
+        backgroundImage: 'radial-gradient(ellipse at 50% -20%, rgba(0, 0, 139, 0.3), transparent 80%)',
+      }}>
 
       {/* Back button, renamed to FINBUZZ.AI */}
-      <button 
-        onClick={onGoBack} 
+      <button
+        onClick={onGoBack}
         className="absolute top-4 left-12 flex items-center gap-2 text-[#00FF88] font-bold text-3xl hover:underline transition-colors"
       >
         <img src="/assets/Logo.png" alt="FINBUZZ.AI Logo" className="w-8 h-8" />
@@ -245,19 +245,19 @@ const AgentUsagePage = ({ onGoBack }) => {
         </div>
         <div className={stepBoxStyle}>
           <p className="text-lg">
-            Our Agentic AI Automated Trading agent autonomously uses real-time market data and embedded strategies to streamline your intraday trading-simply input your amount, launch the agent from the "AI Agent Trading" tab, and then view your performance metrics like P&L, win rate, and portfolio value in the "AI Analytics" tab. 
+            Our Agentic AI Automated Trading agent autonomously uses real-time market data and embedded strategies to streamline your intraday trading-simply input your amount, launch the agent from the "AI Agent Trading" tab, and then view your performance metrics like P&L, win rate, and portfolio value in the "AI Analytics" tab. Refer image below.
           </p>
         </div>
         {/* Placeholder images */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className={`${imageContainerStyle} h-80`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 place-items-center">
+          <div className={`${imageContainerStyle} h-96 w-96`}>
             <img src="/assets/Tab4image1.png" alt="Placeholder image 1" className={imageStyle} />
           </div>
-          <div className={`${imageContainerStyle} h-80`}>
-            <img src="/assets/Tab4image2.png" alt="Placeholder image 2" className={imageStyle} />
+          <div className={`${imageContainerStyle} h-80 w-80`}>
+            <img src="/assets/Traderimage.png" alt="Placeholder image 2" className={imageStyle} />
           </div>
-          <div className={`${imageContainerStyle} h-80`}>
-            <img src="/assets/Tab4image3.png" alt="Placeholder image 3" className={imageStyle} />
+          <div className={`${imageContainerStyle} h-96 w-96`}>
+            <img src="/assets/Traderimage2.png" alt="Placeholder image 3" className={imageStyle} />
           </div>
         </div>
       </motion.div>
