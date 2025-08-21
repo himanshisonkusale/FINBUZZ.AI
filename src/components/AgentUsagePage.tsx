@@ -19,8 +19,8 @@ const AgentUsagePage = ({ onGoBack }) => {
   const imageContainerStyle = "flex items-center justify-center overflow-hidden";
   
   // Handler to open the specified URL
-  const handleLaunchClick = () => {
-    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ', '_blank');
+  const handleLaunchClick = (url) => {
+    window.open(url, '_blank');
   };
 
   return (
@@ -240,7 +240,7 @@ const AgentUsagePage = ({ onGoBack }) => {
         <div className={tabBoxStyle}>
           <Bot size={48} className={iconStyle} />
           <h2 className="text-3xl font-bold text-orange-500 mb-0">
-            Tab 4 - Automated Stock Trading & Investing Agent
+            Agentic AI for Automated Stock Trading & Investing
           </h2>
         </div>
         <div className={stepBoxStyle}>
@@ -250,20 +250,27 @@ const AgentUsagePage = ({ onGoBack }) => {
         </div>
       </motion.div>
 
-      {/* New button to launch FINBUZZ.AI */}
-      <div className="flex justify-center mt-12 mb-12">
+      {/* New buttons */}
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12 mb-12">
         <button
-          className="bg-gradient-to-r from-[#e45619] to-[#dd6c1c] text-white px-16 py-5 rounded-2xl text-2xl font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl"
-          onClick={handleLaunchClick}
+          className="bg-gradient-to-r from-[#e45619] to-[#ee7722] text-white px-8 py-3 rounded-2xl text-lg font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
+          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ')}
         >
-          <span className="relative z-10 group-hover:animate-pulse font-bold">LAUNCH FINBUZZ.AI</span>
-          <div className="absolute inset-0 bg-[#dd6c1c]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Chat Agent</span>
+          <div className="absolute inset-0 bg-[#ff4500]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </button>
+        <button
+          className="bg-gradient-to-r from-[#3fb33f] to-[#0b9d4a] text-white px-8 py-3 rounded-2xl text-lg font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
+          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ')}
+        >
+          <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Trading Agent</span>
+          <div className="absolute inset-0 bg-[#ff4500]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </button>
       </div>
 
       {/* Footer bar */}
       <footer className="bg-black/50 text-white text-center py-4 mt-12 rounded-lg">
-        <p className="text-sm">© 2025 FinBuzz.AI. All rights reserved. | Empowering your financial journey.</p>
+        <p className="text-sm">© 2025 FINBUZZ.AI. All rights reserved. | Empowering your financial journey.</p>
       </footer>
 
     </div>
