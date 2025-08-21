@@ -197,7 +197,7 @@ const AgentUsagePage = ({ onGoBack }) => {
         </div>
         <div className={stepBoxStyle}>
           <p className="text-lg">
-            While the full suite of tools within the Financial Analytics and Investment Tools tab is still in development, you can see the implementation of two of the most useful and widely-used tools, including the <span className="font-bold">Stock Sentiment Analysis and Forecasting Tool</span>, in the image below.
+            The Financial Analytics and Investment Banking agent is a sophisticated suite of tools that offers <span className="font-bold">market sentiment analysis, advanced financial modeling, market depth research, and robust capabilities</span>for analyzing company market statistics, valuations, and IPOs. Check the image below.
           </p>
         </div>
         <div className="mb-12">
@@ -245,8 +245,20 @@ const AgentUsagePage = ({ onGoBack }) => {
         </div>
         <div className={stepBoxStyle}>
           <p className="text-lg">
-            As this is a prototype, the AI automated stock trading agent is currently in development and will be launching soon.
+            Our Agentic AI Automated Trading agent autonomously uses real-time market data and embedded strategies to streamline your intraday trading-simply input your amount, launch the agent from the "AI Agent Trading" tab, and then view your performance metrics like P&L, win rate, and portfolio value in the "AI Analytics" tab. 
           </p>
+        </div>
+        {/* Placeholder images */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className={`${imageContainerStyle} h-80`}>
+            <img src="/assets/Tab4image1.png" alt="Placeholder image 1" className={imageStyle} />
+          </div>
+          <div className={`${imageContainerStyle} h-80`}>
+            <img src="/assets/Tab4image2.png" alt="Placeholder image 2" className={imageStyle} />
+          </div>
+          <div className={`${imageContainerStyle} h-80`}>
+            <img src="/assets/Tab4image3.png" alt="Placeholder image 3" className={imageStyle} />
+          </div>
         </div>
       </motion.div>
 
@@ -254,14 +266,14 @@ const AgentUsagePage = ({ onGoBack }) => {
       <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12 mb-12">
         <button
           className="bg-gradient-to-r from-[#e45619] to-[#ee7722] text-white px-8 py-3 rounded-2xl text-lg font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
-          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ')}
+          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ.AI_CHAT_AGENT')}
         >
           <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Chat Agent</span>
           <div className="absolute inset-0 bg-[#ff4500]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </button>
         <button
           className="bg-gradient-to-r from-[#3fb33f] to-[#0b9d4a] text-white px-8 py-3 rounded-2xl text-lg font-bold transition-all duration-500 transform hover:scale-110 group relative overflow-hidden shadow-lg hover:shadow-2xl w-full sm:w-auto"
-          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ')}
+          onClick={() => handleLaunchClick('https://huggingface.co/spaces/Pawan2605/FINBUZZ.AI_TRADING_AGENT')}
         >
           <span className="relative z-10 group-hover:animate-pulse font-bold">FINBUZZ.AI Trading Agent</span>
           <div className="absolute inset-0 bg-[#ff4500]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -75,11 +75,11 @@ const Hero = () => {
 
   // Handler to open the specified URL
   const handleLaunchClick = () => {
-    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ', '_blank');
+    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ.AI_CHAT_AGENT', '_blank');
   };
 
   const handleTradingAgentClick = () => {
-    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ-Trading-Agent', '_blank');
+    window.open('https://huggingface.co/spaces/Pawan2605/FINBUZZ.AI_TRADING_AGENT', '_blank');
   };
 
   return (
